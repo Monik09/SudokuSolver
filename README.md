@@ -25,4 +25,4 @@ First of all, this function will find empty cell using one of the above defined 
 Then we check the value to be assigned to empty cell from 1 to 9(lets say cell y) and if it is valid then we solve the whole puzzle ahead but if there is some point when we are not able to assign value to any empty cell(say cell z),we come back to this cell y (back-traced the path) and will make this cell again unassigned and will assign the incremented value and follow the same procedure until no empty cell is present(given the sudoku puzzle is correct).
 > If non of the value is valid to a empty cell then the given the sudoku is wrong and thus we will return 0 resulting to show "No solution exists" in new line.
 ### display() function
-This is a normal function to just display the sudoku.I have displayed empty cell by '.' character. I tried to give the output the feeling of real sudoku box by using'|_' and '_|' characters to represent  small boxes.
+This is a normal function to just display the sudoku.I have displayed empty cell by '.' character. I tried to give the output the feeling of real sudoku box by using'|\_' and '\_|' characters to represent  small boxes.
