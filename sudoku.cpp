@@ -15,9 +15,9 @@ int findemptycell(){
     for(int i=0;i<MAX;i++){
         for(int j=0;j<MAX;j++){
             if(a[i][j]==0){
-            emptcol=j;
-            emptrow=i;
-            return 0;
+                emptcol=j;
+                emptrow=i;
+                return 0;
             }
         }
     }
@@ -29,8 +29,11 @@ int valid(int i,int j,int key){
             return 0;
         }
     }
+    //for a particular box
     for(int q=i-i%3;q<(i-i%3)+3;q++){
+        //checking row of a box
         for(int w=j-j%3;w<(j-j%3)+3;w++){
+            //in the column of particular box
             if(a[q][w]==key){
                 return 0;
             }
@@ -40,6 +43,7 @@ int valid(int i,int j,int key){
 }
 int solution(){
     if(findemptycell()){
+        //if we find a empty cell we will again solve the sudoku,otherwise it means that no empty cell is left and thus sudoku is solved 
         return 1;
     }
     int prevr,prevc;
@@ -48,9 +52,12 @@ int solution(){
         if(r==1){
             a[emptrow][emptcol]=i;
             prevc=emptcol;  prevr=emptrow;
+            //assigning the values of the column and row of empty cell so as to keep the track of the cell modified while guessing the 
+            //correct value in that empty cell
             int s=solution();
             if(s==1)
-            return 1;
+                return 1;
+             //if s==0 then we will unassign the  value of cell which was being checked by assigning values to zero
             emptrow=prevr;  emptcol=prevc;
             a[emptrow][emptcol]=0;
         }
@@ -67,11 +74,10 @@ void displaysudoku(){
     for(int i=0;i<MAX;i++){
         cout<<"|";
            for(int j=0;j<MAX;j++){
-           cout<<"_";
-           if(a[i][j]==0)   cout<<".";
-           else             cout<<a[i][j];
-           cout<<"_"<<"|";
-
+               cout<<"_";
+               if(a[i][j]==0)   cout<<".";
+               else             cout<<a[i][j];
+               cout<<"_"<<"|";
         }
         cout<<endl;
     }
@@ -83,8 +89,9 @@ int main(){
     createsudoku();
     cout<<"\nThe sudoku whose anser is to be determined is:\n";
     displaysudoku();
+    
     if(solution()==1){
-    cout<<"\nThe solution of the above given sudoku is:\n";
+        cout<<"\nThe solution of the above given sudoku is:\n";
     displaysudoku();
     cout<<endl;
     }
