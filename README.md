@@ -1,5 +1,5 @@
-# Cpp-Project_SudokuSolver
->This is my *cpp project* which is based on solving sudoku puzzle by **_backtracking algorithm_**
+# SudokuSolver
+>Based on solving sudoku puzzle by **_backtracking algorithm_**
 ## Rules of Sudoku
 * There is always a ***unique solution*** to a sudoku puzzle.
 * Each column must contain all of the numbers 1 through 9 and *no two numbers in the same column of a Sudoku puzzle can be the same*.
